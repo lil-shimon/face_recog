@@ -13,8 +13,8 @@ def detect(gray, original): # params are gray image and original image
     for (x, y, w, h) in faces:
         # call rectangle func from opencv 
         # first arg  : image
-        # second arg : cordinate upper left angle
-        # third arg  : low right left angle
+        # second arg : cordinate upper rectangle
+        # third arg  : low right rectangle
         # fourth arg : colour
         # last arg   : edges of rectangle
         cv2.rectangle(original, (x, y), (x+w, y+h), (255, 0, 0), 2)
