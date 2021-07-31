@@ -33,7 +33,7 @@ webcam_capture = cv2.VideoCapture(0)
 while True:
     # read method returns two method. second one is image
     _, original = webcam_capture.read()
-    # get black and white version of image
+    # to get black and white version of image
     # use cvt func
     # cvt colour func convert colour images to black and white image
     gray = cv2.cvtColor(original, cv2.COLOR_BGR2GRAY)
