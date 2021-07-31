@@ -26,3 +26,25 @@ def detect(gray, original): # params are gray image and original image
             cv2.rectangle(roi_colour, (ew,ey), (ex+ew, ey+eh), (0, 255, 0), 2)
     return original # original image w/ the rectangles detecting the face and eyes
 
+# class statement of webcam
+# 0 means using camera inside your pc
+webcam_capture = cv2.VideoCapture(0)
+
+while True:
+    # read method returns two method. second one is image
+    _, original = webcam_capture.read()
+    # get black and white version of image
+    # use cvt func
+    # cvt colour func convert colour images to black and white image
+    gray = cv2.cvtColor(original, cv2.COLOR_BGR2GRAY)
+    canvas = detect(gray, original)
+    #display all these processed images in an animated way in a window
+    cv2.imshow('Video', canvas)
+    # if press q
+    # while loop process will be break (no more facial recognition)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+# turn off webcam
+webcam_capture.release()
+cv2.destroyAllWindows()
+
